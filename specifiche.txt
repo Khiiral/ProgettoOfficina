@@ -1,0 +1,98 @@
+Caso d'uso UC1: consulta tipi di interventi
+-Attore primario: utente non registrato
+-Scenario principale di successo:
+	- L'utente consulta l'elenco delle tipologie di interventi 
+	- L'utente sceglie una tipologia di intervento e ne richiede i dettagli
+	- Il sistema mostra i dettagli della tipologia di intervento scelta dall'utente
+	- L'utente ripete i passi precedenti un numero indefinito di volte
+
+Caso d'uso UC2: consulta meccanici
+-Attore primario: utente non registrato
+-Scenario principale di successo:
+	- L'utente consulta l'elenco dei meccanici 
+	- Il sistema mostra l'elenco dei meccanici
+	
+Caso d'uso UC3: consulta tipi di interventi
+-Attore primario: cliente
+-Scenario principale di successo:
+	- Il cliente consulta l'elenco delle tipologie di interventi 
+	- Il cliente sceglie una tipologia di intervento e ne richiede i dettagli
+	- Il sistema mostra i dettagli della tipologia di intervento scelta dal cliente
+	- Il cliente ripete i passi precedenti un numero indefinito di volte
+-Pre-condizioni: il cliente è identificato e autenticato
+
+Caso d'uso UC4: consulta meccanici
+-Attore primario: cliente
+-Scenario principale di successo:
+	- Il cliente consulta l'elenco dei meccanici 
+	- Il cliente sceglie un meccanico e ne richiede i dettagli
+	- Il sistema mostra i dettagli del meccanico scelto dal cliente
+	- Il cliente ripete i passi precedenti un numero indefinito di volte
+-Pre-condizioni: il cliente è identificato e autenticato
+
+Caso d'uso UC5: consulta propri interventi
+-Attore primario: cliente
+-Scenario principale di successo:
+	- Il cliente consulta l'elenco dei propri interventi
+	- Il sistema mostra al cliente l'elenco dei suoi interventi
+	- Il cliente chiede i dettagli di un intervento
+	- Il sistema mostra i dettagli dell'intervento scelto dal cliente
+	- Il cliente ripete i passi precedenti finchè necessario
+-Pre-condizioni: il cliente è identificato e autenticato
+
+Caso d'uso UC6: inserimento tipologia di intervento
+-Attore primario: amministrazione
+-Scenario principale di successo:
+	- L'amministratore inserisce una nuova tipologia di intervento indicandone nome, descrizione e costo
+	- Il sistema registra la tipologia di intervento e mostra l'elenco di tutti i tipi di interventi
+Pre-condizioni: l'amministratore è identificato e autenticato
+
+Caso d'uso UC7: inserimento meccanico
+-Attore primario: amministrazione
+-Scenario principale di successo:
+	- L'amministratore inserisce un meccanico indicandone nome e cognome
+	- Il sistema registra il meccanico e mostra l'elenco di tutti i meccanici
+Pre-condizioni: l'amministratore è identificato e autenticato
+
+Caso d'uso UC8: crea intervento(prenotazione)
+-Attore primario: amministrazione
+-Scenario principale di successo:
+	- L'amministratore crea un intervento
+	- L'amministratore imposta una tipologia di intervento all'intervento creato
+	- L'amministratore associa un cliente all'intervento creato
+	- L'amministratore associa un meccanico all'intervento creato
+	- L'amministratore imposta una data in cui verrà effettuato l'intervento
+	- Il sistema registra l'intervento(impostando automaticamente la data di prenotazione) e mostra l'elenco di tutti gli interventi
+-Pre-condizioni: l'amministratore è identificato e autenticato
+
+Caso d'uso UC9: interventi effettuati da un meccanico
+-Attore primario: amministrazione
+-Scenario principale di successo:
+	- L'amministratore consulta l'elenco dei meccanici
+	- L'amministratore sceglie un meccanico e ne richiede i dettagli
+	- Il sistema mostra all'amministratore i dettagli e gli interventi effettuati dal meccanico
+	- L'amministratore ripete i passi precedenti un numero indefinito di volte
+Pre-condizioni: l'amministratore è identificato e autenticato
+
+Caso d'uso UC10: aggiornamento dati cliente
+-Attore primario: amministrazione
+-Scenario principale di successo:
+	- L'amministratore consulta l'elenco dei clienti
+	- L'amministratore sceglie un cliente e ne richiede l'aggiornamento
+	- Il sistema mostra all'amministratore i dati del cliente da aggiornare
+	- L'amministratore aggiorna i dati del cliente selezionato
+	- Il sistema registra l'aggiornamento effettuato e mostra l'elenco di tutti i clienti
+-Pre-condizioni: l'amministratore è identificato e autenticato
+
+Caso d'uso UC11: consulta interventi
+-Attore primario: amministrazione
+-Scenario principale di successo:
+	- L'amministratore consulta l'elenco degli interventi
+	- Il sistema mostra all'amministratore l'elenco degli interventi di tutti i clienti
+	- L'amministratore chiede i dettagli di un intervento di un cliente
+	- Il sistema mostra i dettagli dell'intervento scelto dall'amministratore
+	- L'amministratore ripete i passi precedenti finchè necessario
+-Pre-condizioni: l'amministratore è identificato e autenticato
+
+
+
