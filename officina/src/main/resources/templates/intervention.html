@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link th:href="@{/layout/styles/intervention.css}" rel="stylesheet">
+	<title>Officina - Intervento</title>
+</head>
+<body>
+
+<div th:if="${role}=='ADMIN'">
+	<header>
+	<a th:href="@{/index}" class="header-brand">Officina</a>
+	<nav>
+		<ul>
+			<li><a th:href="@{/default}">Home</a></li>
+			<li>
+			<div class="dropdown">
+				<a class="dropbtn">Inserisci</a>
+				<div class="dropdown-content">
+					<a th:href="@{/admin/intervention}">Intervento</a>
+					<a th:href="@{/admin/typeOfIntervention}">Tipo di Intervento</a>
+					<a th:href="@{/admin/mechanical}">Meccanico</a>
+				</div>
+				</div>
+			</li>
+					
+			<li>
+			<div class="dropdown">
+				<a class="dropbtn">Visualizza</a>
+				<div class="dropdown-content">
+					<a th:href="@{/admin/interventions}">Interventi</a>
+					<a th:href="@{/typeOfIntervention}">Tipi di Interventi</a>
+					<a th:href="@{/mechanical}">Meccanici</a>
+					<a th:href="@{/admin/client}">Clienti</a>
+				</div>
+				</div>
+			</li>
+			<li><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+		<a th:href="@{/register}" class="header-register">Register</a>
+		<a th:href="@{/login}" class="header-login">Login</a>
+	</nav>
+</header>
+</div>
+
+<div th:unless="${role}=='ADMIN'">
+<header>
+	<a th:href="@{/index}" class="header-brand">Officina</a>
+	<nav>
+		<ul>
+			<li><a th:href="@{/default}">Home</a></li>
+			<li>
+			<div class="dropdown">
+				<a class="dropbtn">Funzioni</a>
+				<div class="dropdown-content">
+					<a th:href="@{/interventions/client}">Miei interventi</a>
+					<a th:href="@{/typeOfIntervention}">Tipologie interventi</a>
+					<a th:href="@{/mechanical}">Meccanici</a>
+					<a th:href="@{/logout}">Logout</a>
+				</div>
+				</div>
+			</li>
+			
+		</ul>
+		<a th:href="@{/register}" class="header-register">Register</a>
+		<a th:href="@{/login}" class="header-login">Login</a>
+	</nav>
+</header>
+</div>
+
+<div th:if="${role}=='ADMIN'">
+<div class="benvenuto">
+<p>Admin: <a sec:authentication="name"></a></p>
+</div>
+</div>
+<div th:unless="${role}=='ADMIN'">
+<div class="benvenuto">
+<p>Utente: <a sec:authentication="name"></a></p>
+</div>
+</div>
+
+<div class="bgContent">
+<div class="sectionTitle">
+<p>Intervento</p>
+</div>
+<div th:if="${intervention}" th:object="${intervention}">
+	<section class="displayTable">
+	<table class="centerTable">
+			<tr>
+				<td><h6>ID</h6></td>
+				<td><h1 th:text="*{id}">ID Intervento</h1>
+			</tr>
+		
+			<tr>
+				<td><h6>Tipo di intervento</h6></td>
+				<td><h1 th:text="*{typeOfIntervention.name}">Tipo di intervento</h1>
+			</tr>
+		
+			<tr>
+				<td><h6>Cliente</h6></td>
+				<td><h1 th:text="|*{client.name} *{client.surname}|">Cliente</h1>
+			</tr>
+			
+			<tr>
+				<td><h6>Meccanico</h6></td>
+				<td><h1 th:text="|*{mechanical.name} *{mechanical.surname}|">Meccanico</h1>
+			</tr>
+			
+			<tr>
+				<td><h6>Data prenotazione</h6></td>
+				<td><h1 th:text="*{dateOfPrenotation}">Data di prenotazione</h1>
+			</tr>
+			
+			<tr>
+				<td><h6>Data intervento</h6></td>
+				<td><h1 th:text="*{dateIntervention}">Data intervento</h1>
+			</tr>
+	</table>
+	</section>
+</div>
+<div th:unless="${intervention}">Non trovato</div>
+</div>
+
+<div th:if="${role}=='ADMIN'">
+<footer>
+<ul class="footer-links-main">
+	<li><a th:href="@{/default}">Home</a></li>
+	<li><a th:href="@{/admin/interventions}">Interventi</a></li>
+	<li><a th:href="@{/typeOfIntervention}">Tipologie interventi</a></li>
+	<li><a th:href="@{/mechanical}">Meccanici</a></li>
+	<li><a th:href="@{/admin/client}">Clienti</a></li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<ul class="footer-links-cases">
+	<li>info@gmail.com</li>
+</ul>
+</footer>
+</div>
+
+<div th:unless="${role}=='ADMIN'">
+<footer>
+<ul class="footer-links-main">
+	<li><a th:href="@{/default}">Home</a></li>
+	<li><a th:href="@{/interventions/client}">Miei interventi</a></li>
+	<li><a th:href="@{/typeOfIntervention}">Tipologie interventi</a></li>
+	<li><a th:href="@{/mechanical}">Meccanici</a></li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<ul class="footer-links-cases">
+	<li>info@gmail.com</li>
+</ul>
+</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link th:href="@{/layout/styles/registrationSuccessful.css}" rel="stylesheet">
+	<title>Officina - Registrazione completata</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}" class="header-brand">Officina</a>
+	<nav>
+		<ul>
+			<li><a th:href="@{/index}">Home</a></li>
+			<li><a th:href="@{/typeOfInterventionAll}">Tipologie interventi</a></li>
+			<li><a th:href="@{/mechanicalAll}">Meccanici</a></li>
+		</ul>
+		<a th:href="@{/register}" class="header-register">Register</a>
+		<a th:href="@{/login}" class="header-login">Login</a>
+	</nav>
+</header>
+
+<div class="successTitle">
+<p>Registrazione avvenuta correttamente</p>
+</div>
+<footer>
+<ul class="footer-links-main">
+	<li><a th:href="@{/index}">Home</a></li>
+	<li><a th:href="@{/typeOfInterventionAll}">Tipologie interventi</a></li>
+	<li><a th:href="@{/mechanicalAll}">Meccanici</a></li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<ul class="footer-links-cases">
+	<li>info@gmail.com</li>
+</ul>
+</footer>
+</body>
+</html>

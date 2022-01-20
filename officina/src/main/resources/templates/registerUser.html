@@ -1,0 +1,94 @@
+<!DOCTYPE HTML>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link th:href="@{/layout/styles/registerUser.css}" rel="stylesheet">
+	<title>Officina - Registrazione</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}" class="header-brand">Officina</a>
+	<nav>
+		<ul>
+			<li><a th:href="@{/index}">Home</a></li>
+			<li><a th:href="@{/typeOfInterventionAll}">Tipologie interventi</a></li>
+			<li><a th:href="@{/mechanicalAll}">Meccanici</a></li>
+		</ul>
+		<a th:href="@{/register}" class="header-register">Register</a>
+		<a th:href="@{/login}" class="header-login">Login</a>
+	</nav>
+</header>
+<main>
+<section class="contentRegister">
+	<div class="main">
+	<form th:action="@{/register}" method="POST">
+	<div class="registerTitle">
+		<p>Registrazione</p>
+	</div>
+	<div>
+	
+		<div>
+		<div class="usernameText">
+		<h6>Username</h6>
+		</div>
+		<h6><input class="username" type="text" placeholder="Inserisci il tuo username" required th:field="${credentials.username}"></h6>
+		<h6 th:if="${#fields.hasErrors('credentials.username')}" th:errors="${credentials.username}" th:style="'color:red'"></h6>
+		</div>
+		<br>
+		
+		<div>
+		<div class="passwordText">
+		<h6>Password</h6>
+		</div>
+		<h6><input class="password" type="password" placeholder="Inserisci la tua password" required th:field="${credentials.password}"></h6>
+		<h6 th:if="${#fields.hasErrors('credentials.password')}" th:errors="${credentials.password}" th:style="'color:red'"></h6>
+		</div>
+		<br>
+		
+		<div>
+		<div class="nameText">
+		<h6>Nome</h6>
+		</div>
+		<h6><input class="name" type="text" placeholder="Inserisci il tuo nome" required th:field="${user.name}"></h6>
+		<h6 th:if="${#fields.hasErrors('user.name')}" th:errors="${user.name}" th:style="'color:red'"></h6>
+		</div>
+		<br>
+		
+		<div>
+		<div class="surnameText">
+		<h6>Cognome</h6>
+		</div>
+		<h6><input class="surname" type="text" placeholder="Inserisci il tuo cognome" required th:field="${user.surname}"></h6>
+		<h6 th:if="${#fields.hasErrors('user.surname')}" th:errors="${user.surname}" th:style="'color:red'"></h6>
+		</div>
+		<br>
+		
+		<div>
+		<h6><button class="button" type="submit">Crea il tuo account</button></h6>
+		</div>
+	</div>
+	</form>
+	</div>
+	</section>
+</main>
+	<footer>
+<ul class="footer-links-main">
+	<li><a th:href="@{/index}">Home</a></li>
+	<li><a th:href="@{/typeOfInterventionAll}">Tipologie interventi</a></li>
+	<li><a th:href="@{/mechanicalAll}">Meccanici</a></li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<ul class="footer-links-cases">
+	<li>info@gmail.com</li>
+</ul>
+</footer>
+	
+	
+	</body>
+	</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link th:href="@{/layout/styles/typeOfInterventionForm.css}" rel="stylesheet">
+	<title>Officina - Inserisci tipologia intervento</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}" class="header-brand">Officina</a>
+	<nav>
+		<ul>
+			<li><a th:href="@{/default}">Home</a></li>
+			<li>
+			<div class="dropdown">
+				<a class="dropbtn">Inserisci</a>
+				<div class="dropdown-content">
+					<a th:href="@{/admin/intervention}">Intervento</a>
+					<a th:href="@{/admin/typeOfIntervention}">Tipo di Intervento</a>
+					<a th:href="@{/admin/mechanical}">Meccanico</a>
+				</div>
+				</div>
+			</li>
+					
+			<li>
+			<div class="dropdown">
+				<a class="dropbtn">Visualizza</a>
+				<div class="dropdown-content">
+					<a th:href="@{/admin/interventions}">Interventi</a>
+					<a th:href="@{/typeOfIntervention}">Tipi di Interventi</a>
+					<a th:href="@{/mechanical}">Meccanici</a>
+					<a th:href="@{/admin/client}">Clienti</a>
+				</div>
+				</div>
+			</li>
+			<li><a th:href="@{/logout}">Logout</a></li>
+		</ul>
+		<a th:href="@{/register}" class="header-register">Register</a>
+		<a th:href="@{/login}" class="header-login">Login</a>
+	</nav>
+</header>
+
+<div class="benvenuto">
+<p>Admin: <a sec:authentication="name"></a></p>
+</div>
+
+
+<section class="contentForm">
+<div class="main">
+		<form th:action="@{/admin/typeOfIntervention}" method="POST" th:object="${typeOfIntervention}">
+			<div th:if="${#fields.hasGlobalErrors()}">
+				<p th:each="err : ${#fields.globalErrors()}" th:text="${err}" th:style="'color:red'">...</p>
+			</div>
+			<div class="formTitle">
+				<p>Tipo di intervento</p>
+			</div>
+			
+			<table class="centerTable">
+				<tr>
+					<td>
+					<div class="nameText">
+					<h6>
+						<span>Nome<input type="text" class="name" th:field="*{name}" id="typeOfIntervention" placeholder="Inserisci un nome" required/></span>
+					</h6>
+					</div>
+					<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+					<div class="descriptionText">
+					<h6>
+						<span>Descrizione<input type="text" class="description" th:field="*{description}" id="typeOfIntervention" placeholder="Inserisci una descrizione" required/></span>
+					</h6>
+					</div>
+					<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+					<div class="costText">
+					<h6>
+						<span>Costo<input type="text" class="cost" th:field="*{cost}" id="typeOfIntervention" placeholder="Inserisci un costo" required/></span>
+					</h6>
+					</div>
+					<span th:if="${#fields.hasErrors('cost')}" th:errors="*{cost}"></span>
+					</td>
+				</tr>
+	</table>
+	<div>
+		<h6><button class="button" type="submit"><b>Inserisci</b></button></h6>
+		</div>	
+		</form>
+		</div>
+		</section>
+
+<footer>
+<ul class="footer-links-main">
+	<li><a th:href="@{/default}">Home</a></li>
+	<li><a th:href="@{/admin/interventions}">Interventi</a></li>
+	<li><a th:href="@{/typeOfIntervention}">Tipologie interventi</a></li>
+	<li><a th:href="@{/mechanical}">Meccanici</a></li>
+	<li><a th:href="@{/admin/client}">Clienti</a></li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<ul class="footer-links-cases">
+	<li>info@gmail.com</li>
+</ul>
+</footer>
+</body>
+</html>

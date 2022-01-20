@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link th:href="@{/layout/styles/typeOfInterventionAll.css}" rel="stylesheet">
+	<title>Officina - Tipi di interventi</title>
+</head>
+<body>
+<header>
+	<a th:href="@{/index}" class="header-brand">Officina</a>
+	<nav>
+		<ul>
+			<li><a th:href="@{/index}">Home</a></li>
+			<li><a th:href="@{/typeOfInterventionAll}">Tipologie interventi</a></li>
+			<li><a th:href="@{/mechanicalAll}">Meccanici</a></li>
+		</ul>
+		<a th:href="@{/register}" class="header-register">Register</a>
+		<a th:href="@{/login}" class="header-login">Login</a>
+	</nav>
+</header>
+<div class="bgContent">
+<div class="sectionTitle">
+<p>Tipologia intervento</p>
+</div>
+<div th:if="${typeOfIntervention}" th:object="${typeOfIntervention}">
+	<section class="displayTable">
+	<table class="centerTable">
+			<tr>
+				<td><h6>ID</h6></td>
+				<td><h1 th:text="*{id}">ID Tipologia</h1>
+			</tr>
+		
+			<tr>
+				<td><h6>Nome</h6></td>
+				<td><h1 th:text="*{name}">Nome Tipologia</h1>
+			</tr>
+		
+			<tr>
+				<td><h6>Descrizione</h6></td>
+				<td><h1 th:text="*{description}">Descrizione Tipologia</h1>
+			</tr>
+		
+			<tr>
+				<td><h6>Costo</h6></td>
+				<td><h1 th:text="*{cost}">Costo Tipologia</h1>
+			</tr>	
+	</table>
+	</section>
+</div>
+<div th:unless="${typeOfIntervention}">Non trovato</div>
+</div>
+
+<footer>
+<ul class="footer-links-main">
+	<li><a th:href="@{/index}">Home</a></li>
+	<li><a th:href="@{/typeOfInterventionAll}">Tipologie interventi</a></li>
+	<li><a th:href="@{/mechanicalAll}">Meccanici</a></li>
+</ul>
+<br>
+<br>
+<br>
+<br>
+<ul class="footer-links-cases">
+	<li>info@gmail.com</li>
+</ul>
+</footer>
+	
+</body>
+</html>
